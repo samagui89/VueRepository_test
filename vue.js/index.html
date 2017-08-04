@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vue.js 공부 중</title>
+	<script src="./js/vue.js"></script>
+	<script src="./js/vue.custom.js"></script>
+</head>
+<body>
+
+	<h1>Vue.js 기본</h1>
+	<div id="app01" >
+		<p>{{ msg }}</p>
+		<button @click="showAlert">Click On!</button>
+
+		<ul>
+			<li v-for='item in items'>{{ item.message }}</li>
+		<ul>
+
+		<span v-if='ok'>True</span>
+		<span v-else>False</span>
+	</div>
+
+	<div id="app02">
+		{{ msg }}
+		<br>
+		<p v-html="app02html">
+			v-html="app02html"
+		</p>
+		<br>
+		<p :id="app02span">
+			얘는 아이디값 v-bind:id ="app02span"
+		</p>
+		<p :class="app02span">
+			얘는 클래스값 :class ="app02span" (v-bind 생략 가능)
+		</p>
+		<br><br>
+		<button @click="counter += 1">Plus 1</button>
+		<p>버튼을 클릭한 횟수 {{ counter }}번 (v-on을 @로 생략 가능)</p>
+	</div>
+
+	<div id="app03">
+		{{ msg }}
+		<br>
+		{{ message }}<br>
+		<input type="text" v-on:input="typing" v-model="message">
+		<br><br>
+		<label for="jack"><input type="checkbox" id="jack" value="jack" v-model="checkedNames">Jack</label>
+		<label for="John"><input type="checkbox" id="John" value="John" v-model="checkedNames">John</label>
+		<label for="Mike"><input type="checkbox" id="Mike" value="Mike" v-model="checkedNames">Mike</label>
+		<br>
+		<span>체크한 이름 : {{ checkedNames }}</span>
+		<br><br>
+		<label for="radio_1"><input type="radio" id="radio_1" value="One" v-model="radioName"> One</label>
+		<label for="radio_2"><input type="radio" id="radio_2" value="Two" v-model="radioName"> Two</label>
+		<br>
+		<span>체크한 이름 : {{ radioName }}</span>
+		<br><br>
+		<select v-model="selectName">
+			<option>첫번째 셀렉트</option>
+			<option>두번째 셀렉트</option>
+			<option>세번째 셀렉트</option>
+		</select>
+		<br>
+		<span>체크한 이름 : {{ selectName }}</span>
+
+	</div>
+
+	<div id="example">
+		<div>
+		<div is="my-component"></div>
+		</div>
+	</div>
+
+	<div>
+		<child message="안녕하세요!"></child>
+	</div>
+
+</body>
+</html>
